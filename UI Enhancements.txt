@@ -1,0 +1,616 @@
+You are enhancing an existing production-grade multi-tenant DigiDelight platform built with:
+
+- Frontend: Vue 3 + TypeScript
+- Backend: FastAPI
+- UI: Modern SaaS dashboard
+- Existing modules: CRM, messaging, templates, calendar, kanban, analytics, whiteboard, URL shortener, workflows, settings
+
+Goal:
+Redesign the entire sidebar navigation system to be modern, visually appealing, highly usable, and scalable — inspired by modern SaaS UI patterns and animation-based sidebar designs (like collapsible/expandable sidebar with smooth transitions).
+
+This is NOT just a visual change.
+This is a full sidebar UX + architecture redesign.
+
+==================================================
+1. TARGET UX EXPERIENCE
+==================================================
+
+Design a modern sidebar with:
+
+1. Collapsible + Expandable states
+   - Collapsed: icon-only (60px width approx)
+   - Expanded: full menu with labels (~240px width)
+   - Smooth animated transition
+
+2. Hover + Click interactions
+   - Hover → temporary expand (optional setting)
+   - Click → pin expanded state
+
+3. Micro-interactions
+   - smooth width animation
+   - icon → label fade/slide
+   - active item highlight animation
+   - submenu expand/collapse animation
+
+4. Clean modern design
+   - minimal visual noise
+   - soft shadows / subtle separators
+   - clear hierarchy
+   - modern icon system
+
+==================================================
+2. SIDEBAR LAYOUT STRUCTURE
+==================================================
+
+Design sidebar with:
+
+A. Top Section
+- Logo (collapsed = icon, expanded = full logo)
+- Workspace / Tenant switcher (important for SaaS)
+
+B. Main Navigation
+Group items into logical sections:
+
+Example:
+- Dashboard
+- CRM
+  - Contacts
+  - Accounts
+- Campaigns
+- Messaging
+- Calendar
+- Tasks / Kanban
+- Whiteboard
+- Analytics
+- URL Shortener
+- Workflows
+
+C. Secondary Section
+- Settings
+- Admin
+- Integrations
+
+D. Bottom Section
+- User profile
+- Theme switcher (light/dark)
+- Collapse toggle
+
+==================================================
+3. VISUAL DESIGN SYSTEM
+==================================================
+
+Implement modern SaaS styling:
+
+- Sidebar background:
+  - light mode: subtle gray/white
+  - dark mode: deep neutral
+
+- Active item:
+  - colored left border or pill background
+  - bold icon + label
+
+- Hover state:
+  - soft highlight
+  - subtle elevation
+
+- Icons:
+  - consistent icon set (lucide / heroicons style)
+  - same size and spacing
+
+- Typography:
+  - consistent font size
+  - truncated labels in collapsed mode
+
+- Section headers:
+  - small caps / muted labels
+
+==================================================
+4. COLLAPSIBLE BEHAVIOR
+==================================================
+
+Implement:
+
+1. Collapsed Mode
+- show only icons
+- tooltip on hover
+- submenu opens as floating panel
+
+2. Expanded Mode
+- show full labels
+- nested menu visible inline
+
+3. Transition
+- smooth width animation (200–300ms)
+- label fade-in
+- icons stay fixed
+
+==================================================
+5. SUBMENU / NESTED NAVIGATION
+==================================================
+
+Support nested items:
+
+- Expand/collapse sections
+- Animated accordion behavior
+- Active path highlighting
+- Auto-expand active route
+
+Collapsed mode behavior:
+- submenu appears as floating popover panel
+
+==================================================
+6. RESPONSIVENESS
+==================================================
+
+Implement:
+
+Desktop:
+- persistent sidebar
+
+Tablet:
+- collapsible sidebar
+
+Mobile:
+- drawer/sidebar overlay (slide-in)
+
+Use side-drawer pattern for mobile to save space.
+
+==================================================
+7. STATE MANAGEMENT
+==================================================
+
+Maintain sidebar state:
+
+- collapsed / expanded
+- pinned / hover mode
+- active menu item
+- expanded sections
+- persisted in local storage per user
+
+==================================================
+8. PERMISSION-AWARE NAVIGATION
+==================================================
+
+Sidebar must dynamically render based on:
+
+- user role
+- tenant plan/features
+- permissions
+
+Hide inaccessible modules.
+
+==================================================
+9. ROUTING INTEGRATION
+==================================================
+
+Ensure:
+- active route highlighting
+- deep route awareness
+- breadcrumb sync
+- auto-expand correct section
+
+==================================================
+10. REUSABLE COMPONENTS
+==================================================
+
+Create reusable components:
+
+- SidebarContainer
+- SidebarItem
+- SidebarSection
+- SidebarCollapseToggle
+- SidebarTooltip
+- SidebarPopoverMenu
+- SidebarUserPanel
+- SidebarWorkspaceSwitcher
+
+==================================================
+11. ANIMATION SYSTEM
+==================================================
+
+Use smooth micro-interactions:
+
+- width transition
+- icon-to-label transition
+- submenu accordion animation
+- hover highlight animation
+- active indicator animation
+
+Keep animations subtle and fast.
+
+==================================================
+12. PERFORMANCE
+==================================================
+
+Ensure:
+- no heavy rerenders
+- lazy load submenu if needed
+- minimal DOM complexity
+- fast transitions
+
+==================================================
+13. ACCESSIBILITY
+==================================================
+
+Support:
+- keyboard navigation
+- focus states
+- aria roles for menu/navigation
+- screen reader labels
+- tooltip accessibility
+
+==================================================
+14. OPTIONAL ADVANCED ENHANCEMENTS (ADD VALUE)
+==================================================
+
+If possible, include:
+
+- favorites/pinned menu items
+- recently used modules
+- quick search inside sidebar
+- notification badges
+- collapsible groups
+- contextual sidebar (changes based on module)
+
+==================================================
+15. FRONTEND IMPLEMENTATION
+==================================================
+
+Implement in Vue:
+
+- full sidebar component
+- transitions and animations
+- responsive behavior
+- integration with router
+- integration with permissions
+- theme-aware styles
+
+==================================================
+16. TESTING
+==================================================
+
+Test:
+- collapse/expand behavior
+- hover vs click mode
+- submenu behavior
+- routing sync
+- responsive behavior
+- permission-based visibility
+
+==================================================
+17. DELIVERABLES
+==================================================
+
+Provide:
+
+1. redesigned sidebar architecture
+2. Vue components implementation
+3. animation system
+4. responsive behavior
+5. permission integration
+6. state management
+7. reusable components
+8. test coverage
+9. documentation
+10. changed file list
+
+==================================================
+18. IMPLEMENTATION CONSTRAINTS
+==================================================
+
+- Do NOT break existing routing
+- Must work across all modules
+- Must be reusable and scalable
+- Must feel modern and premium
+- Prefer clean architecture over hacks
+- Generate fully working implementation
+
+
+
+
+You are enhancing an existing production-grade multi-tenant DigiDelight platform built with:
+
+- Frontend: Vue 3 + TypeScript
+- Backend: FastAPI
+- UI: Modern SaaS dashboard
+- Existing modules: CRM, messaging, templates, calendar, kanban, analytics, whiteboard, URL shortener, workflows, settings
+
+Goal:
+Redesign the entire sidebar navigation system to be modern, visually appealing, highly usable, and scalable — inspired by modern SaaS UI patterns and animation-based sidebar designs (like collapsible/expandable sidebar with smooth transitions).
+
+This is NOT just a visual change.
+This is a full sidebar UX + architecture redesign.
+
+==================================================
+1. TARGET UX EXPERIENCE
+==================================================
+
+Design a modern sidebar with:
+
+1. Collapsible + Expandable states
+   - Collapsed: icon-only (60px width approx)
+   - Expanded: full menu with labels (~240px width)
+   - Smooth animated transition
+
+2. Hover + Click interactions
+   - Hover → temporary expand (optional setting)
+   - Click → pin expanded state
+
+3. Micro-interactions
+   - smooth width animation
+   - icon → label fade/slide
+   - active item highlight animation
+   - submenu expand/collapse animation
+
+4. Clean modern design
+   - minimal visual noise
+   - soft shadows / subtle separators
+   - clear hierarchy
+   - modern icon system
+
+==================================================
+2. SIDEBAR LAYOUT STRUCTURE
+==================================================
+
+Design sidebar with:
+
+A. Top Section
+- Logo (collapsed = icon, expanded = full logo)
+- Workspace / Tenant switcher (important for SaaS)
+
+B. Main Navigation
+Group items into logical sections:
+
+Example:
+- Dashboard
+- CRM
+  - Contacts
+  - Accounts
+- Campaigns
+- Messaging
+- Calendar
+- Tasks / Kanban
+- Whiteboard
+- Analytics
+- URL Shortener
+- Workflows
+
+C. Secondary Section
+- Settings
+- Admin
+- Integrations
+
+D. Bottom Section
+- User profile
+- Theme switcher (light/dark)
+- Collapse toggle
+
+==================================================
+3. VISUAL DESIGN SYSTEM
+==================================================
+
+Implement modern SaaS styling:
+
+- Sidebar background:
+  - light mode: subtle gray/white
+  - dark mode: deep neutral
+
+- Active item:
+  - colored left border or pill background
+  - bold icon + label
+
+- Hover state:
+  - soft highlight
+  - subtle elevation
+
+- Icons:
+  - consistent icon set (lucide / heroicons style)
+  - same size and spacing
+
+- Typography:
+  - consistent font size
+  - truncated labels in collapsed mode
+
+- Section headers:
+  - small caps / muted labels
+
+==================================================
+4. COLLAPSIBLE BEHAVIOR
+==================================================
+
+Implement:
+
+1. Collapsed Mode
+- show only icons
+- tooltip on hover
+- submenu opens as floating panel
+
+2. Expanded Mode
+- show full labels
+- nested menu visible inline
+
+3. Transition
+- smooth width animation (200–300ms)
+- label fade-in
+- icons stay fixed
+
+==================================================
+5. SUBMENU / NESTED NAVIGATION
+==================================================
+
+Support nested items:
+
+- Expand/collapse sections
+- Animated accordion behavior
+- Active path highlighting
+- Auto-expand active route
+
+Collapsed mode behavior:
+- submenu appears as floating popover panel
+
+==================================================
+6. RESPONSIVENESS
+==================================================
+
+Implement:
+
+Desktop:
+- persistent sidebar
+
+Tablet:
+- collapsible sidebar
+
+Mobile:
+- drawer/sidebar overlay (slide-in)
+
+Use side-drawer pattern for mobile to save space.
+
+==================================================
+7. STATE MANAGEMENT
+==================================================
+
+Maintain sidebar state:
+
+- collapsed / expanded
+- pinned / hover mode
+- active menu item
+- expanded sections
+- persisted in local storage per user
+
+==================================================
+8. PERMISSION-AWARE NAVIGATION
+==================================================
+
+Sidebar must dynamically render based on:
+
+- user role
+- tenant plan/features
+- permissions
+
+Hide inaccessible modules.
+
+==================================================
+9. ROUTING INTEGRATION
+==================================================
+
+Ensure:
+- active route highlighting
+- deep route awareness
+- breadcrumb sync
+- auto-expand correct section
+
+==================================================
+10. REUSABLE COMPONENTS
+==================================================
+
+Create reusable components:
+
+- SidebarContainer
+- SidebarItem
+- SidebarSection
+- SidebarCollapseToggle
+- SidebarTooltip
+- SidebarPopoverMenu
+- SidebarUserPanel
+- SidebarWorkspaceSwitcher
+
+==================================================
+11. ANIMATION SYSTEM
+==================================================
+
+Use smooth micro-interactions:
+
+- width transition
+- icon-to-label transition
+- submenu accordion animation
+- hover highlight animation
+- active indicator animation
+
+Keep animations subtle and fast.
+
+==================================================
+12. PERFORMANCE
+==================================================
+
+Ensure:
+- no heavy rerenders
+- lazy load submenu if needed
+- minimal DOM complexity
+- fast transitions
+
+==================================================
+13. ACCESSIBILITY
+==================================================
+
+Support:
+- keyboard navigation
+- focus states
+- aria roles for menu/navigation
+- screen reader labels
+- tooltip accessibility
+
+==================================================
+14. OPTIONAL ADVANCED ENHANCEMENTS (ADD VALUE)
+==================================================
+
+If possible, include:
+
+- favorites/pinned menu items
+- recently used modules
+- quick search inside sidebar
+- notification badges
+- collapsible groups
+- contextual sidebar (changes based on module)
+
+==================================================
+15. FRONTEND IMPLEMENTATION
+==================================================
+
+Implement in Vue:
+
+- full sidebar component
+- transitions and animations
+- responsive behavior
+- integration with router
+- integration with permissions
+- theme-aware styles
+
+==================================================
+16. TESTING
+==================================================
+
+Test:
+- collapse/expand behavior
+- hover vs click mode
+- submenu behavior
+- routing sync
+- responsive behavior
+- permission-based visibility
+
+==================================================
+17. DELIVERABLES
+==================================================
+
+Provide:
+
+1. redesigned sidebar architecture
+2. Vue components implementation
+3. animation system
+4. responsive behavior
+5. permission integration
+6. state management
+7. reusable components
+8. test coverage
+9. documentation
+10. changed file list
+
+==================================================
+18. IMPLEMENTATION CONSTRAINTS
+==================================================
+
+- Do NOT break existing routing
+- Must work across all modules
+- Must be reusable and scalable
+- Must feel modern and premium
+- Prefer clean architecture over hacks
+- Generate fully working implementation
